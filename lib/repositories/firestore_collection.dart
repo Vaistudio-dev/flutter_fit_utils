@@ -11,7 +11,8 @@ class FirestoreCollection implements Repository {
   /// Callback for real time updates.
   final Function(Model, bool)? onDocUpdate;
 
-  late final CollectionReference _collectionReference = _db.collection(collectionId);
+  late final CollectionReference _collectionReference =
+      _db.collection(collectionId);
 
   final List<DocumentReference<Object?>> _listenedDocs = [];
   final List<Query<Object?>> _listenedQueries = [];
@@ -21,8 +22,7 @@ class FirestoreCollection implements Repository {
     try {
       _db = FirebaseFirestore.instance;
       _db.collection(collectionId);
-    }
-    on Exception {
+    } on Exception {
       // The most probable cause is that Firebase.initializeApp() has not been called at this point.
     }
   }
@@ -38,13 +38,15 @@ class FirestoreCollection implements Repository {
     _listenedDocs.add(doc);
     doc.snapshots().listen((event) {
       final Object? raw = event.data();
-      final Map<String, dynamic> data = raw != null ? (raw as Map<String, dynamic>) : {};
+      final Map<String, dynamic> data =
+          raw != null ? (raw as Map<String, dynamic>) : {};
 
-      onDocUpdate!(Model(
-        id: event.id,
-        userId: data[Model.userIdKey] ?? "",
-        data: data[Model.dataKey] ?? {}
-      ), event.exists);
+      onDocUpdate!(
+          Model(
+              id: event.id,
+              userId: data[Model.userIdKey] ?? "",
+              data: data[Model.dataKey] ?? {}),
+          event.exists);
     });
   }
 
@@ -52,18 +54,20 @@ class FirestoreCollection implements Repository {
     if (onDocUpdate == null || _listenedQueries.contains(query)) {
       return;
     }
-    
+
     _listenedQueries.add(query);
     query.snapshots().listen((event) {
       for (final change in event.docChanges) {
         final Object? raw = change.doc.data();
-        final Map<String, dynamic> data = raw != null ? (raw as Map<String, dynamic>) : {};
+        final Map<String, dynamic> data =
+            raw != null ? (raw as Map<String, dynamic>) : {};
 
-        onDocUpdate!(Model(
-          id: change.doc.id,
-          userId: data[Model.userIdKey] ?? "",
-          data: data[Model.dataKey] ?? {}
-        ), change.newIndex != -1);
+        onDocUpdate!(
+            Model(
+                id: change.doc.id,
+                userId: data[Model.userIdKey] ?? "",
+                data: data[Model.dataKey] ?? {}),
+            change.newIndex != -1);
       }
     });
   }
@@ -75,16 +79,16 @@ class FirestoreCollection implements Repository {
     return _collectionReference.doc(id).get().then((value) {
       final Map<String, dynamic> data = (value.data() as Map<String, dynamic>);
       return Model(
-        id: id,
-        userId: data[Model.userIdKey],
-        data: data[Model.dataKey]
-      );
+          id: id, userId: data[Model.userIdKey], data: data[Model.dataKey]);
     });
   }
 
   @override
-  Future<List<Model>> getAll({String? userId, Where? where, String? orderBy, bool descending = true}) {
-    var query = userId != null ? _collectionReference.where(Model.userIdKey, isEqualTo: userId) : _collectionReference;
+  Future<List<Model>> getAll(
+      {String? userId, Where? where, String? orderBy, bool descending = true}) {
+    var query = userId != null
+        ? _collectionReference.where(Model.userIdKey, isEqualTo: userId)
+        : _collectionReference;
 
     if (where != null) {
       query = query.where(
@@ -113,7 +117,10 @@ class FirestoreCollection implements Repository {
       final List<Model> models = [];
       for (final doc in value.docs) {
         final Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-        models.add(Model(id: data[Model.idKey], userId: data[Model.userIdKey] ?? "", data: data[Model.dataKey] as Map<String, dynamic>));
+        models.add(Model(
+            id: data[Model.idKey],
+            userId: data[Model.userIdKey] ?? "",
+            data: data[Model.dataKey] as Map<String, dynamic>));
       }
       return models;
     });
@@ -136,7 +143,9 @@ class FirestoreCollection implements Repository {
 
   @override
   Future<int> count({String? userId, Where? where}) async {
-    var query = userId != null ? _collectionReference.where(Model.userIdKey, isEqualTo: userId) : _collectionReference;
+    var query = userId != null
+        ? _collectionReference.where(Model.userIdKey, isEqualTo: userId)
+        : _collectionReference;
 
     if (where != null) {
       query = query.where(
@@ -166,19 +175,19 @@ class FirestoreCollection implements Repository {
   @override
   Future<void> deleteWhere(Where where) async {
     var query = _collectionReference.where(
-        where.field,
-        isEqualTo: where.isEqualTo,
-        isNotEqualTo: where.isNotEqualTo,
-        isLessThan: where.isLessThan,
-        isGreaterThan: where.isGreaterThan,
-        isLessThanOrEqualTo: where.isLessThanOrEqualTo,
-        isGreaterThanOrEqualTo: where.isGreaterThanOrEqualTo,
-        arrayContains: where.arrayContains,
-        arrayContainsAny: where.arrayContainsAny,
-        whereIn: where.whereIn,
-        whereNotIn: where.whereNotIn,
-        isNull: where.isNull,
-      );
+      where.field,
+      isEqualTo: where.isEqualTo,
+      isNotEqualTo: where.isNotEqualTo,
+      isLessThan: where.isLessThan,
+      isGreaterThan: where.isGreaterThan,
+      isLessThanOrEqualTo: where.isLessThanOrEqualTo,
+      isGreaterThanOrEqualTo: where.isGreaterThanOrEqualTo,
+      arrayContains: where.arrayContains,
+      arrayContainsAny: where.arrayContainsAny,
+      whereIn: where.whereIn,
+      whereNotIn: where.whereNotIn,
+      isNull: where.isNull,
+    );
 
     return query.get().then((value) {
       for (final doc in value.docs) {
@@ -189,7 +198,9 @@ class FirestoreCollection implements Repository {
 
   @override
   Future<void> clear({String? userId}) async {
-    final query = userId != null ? _collectionReference.where(Model.userIdKey, isEqualTo: userId) : _collectionReference;
+    final query = userId != null
+        ? _collectionReference.where(Model.userIdKey, isEqualTo: userId)
+        : _collectionReference;
     await query.get().then((value) async {
       for (final doc in value.docs) {
         await _collectionReference.doc(doc.id).delete();

@@ -27,12 +27,15 @@ class RemoteConfigRepository implements Repository {
     final String encodedData = config.getString(parameterId);
 
     try {
-      final List<Map<String, dynamic>> models = List<Map<String, dynamic>>.from(jsonDecode(encodedData));
+      final List<Map<String, dynamic>> models =
+          List<Map<String, dynamic>>.from(jsonDecode(encodedData));
       for (final model in models) {
-        _models.add(Model(id: model[Model.idKey], userId: model[Model.userIdKey] ?? "", data: model[Model.dataKey] as Map<String, dynamic>));
+        _models.add(Model(
+            id: model[Model.idKey],
+            userId: model[Model.userIdKey] ?? "",
+            data: model[Model.dataKey] as Map<String, dynamic>));
       }
-    }
-    on Exception {
+    } on Exception {
       // Invalid format.
     }
 
@@ -45,8 +48,14 @@ class RemoteConfigRepository implements Repository {
   }
 
   @override
-  Future<List<Model>> getAll({String? userId, Where? where, String? orderBy, bool descending = true}) async {
-    List<Model> correspondingUserModels = List.from(_models.where((element) => userId == null || element.userId! == userId).toList());
+  Future<List<Model>> getAll(
+      {String? userId,
+      Where? where,
+      String? orderBy,
+      bool descending = true}) async {
+    List<Model> correspondingUserModels = List.from(_models
+        .where((element) => userId == null || element.userId! == userId)
+        .toList());
 
     return correspondingUserModels;
   }
