@@ -55,7 +55,8 @@ extension FitStringExtension on String {
   /// To return [true], the trimmed lowercase string must be "true".
   bool parseBool() => toLowerCase().trim() == "true";
 
-  /// Creates a [Model] from a [String]. The data is encapsulated inside [Model.data["data"]].
+  /// Creates a [Model] from a [String].
+  /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
     id: id,
     userId: userId,

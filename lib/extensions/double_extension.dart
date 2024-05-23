@@ -12,7 +12,8 @@ extension FitDoubleExtension on double {
     return toStringAsFixed(0);
   }
 
-  /// Creates a [Model] from a [double]. Encapsulates the data inside [Model.data["data"]].
+  /// Creates a [Model] from a [double].
+  /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
     id: id,
     userId: userId,
