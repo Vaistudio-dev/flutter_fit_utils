@@ -1,5 +1,5 @@
 name: flutter_fit_utils
-description: "Set of utilities for Flutter apps."
+description: "A flutter package to easily manage data in and out of repositories. This package is the core of it's environement."
 version: 1.0.0
 homepage:
 
