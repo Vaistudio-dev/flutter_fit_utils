@@ -1,4 +1,5 @@
-flutter_fit_utils is the core of it's environement. To know about other packages related to flutter_fit_utils, see the diagram below.
+A flutter package to easily manage data in and out of repositories.
+This package is the core of it's environement. To know about other packages related to flutter_fit_utils, see the diagram below.
 
 ![flutter_fit_utils relations](https://github.com/s0punk/flutter_fit_utils/assets/59456672/2747cb84-1c06-4c5a-9b45-8db18977ac77)
 
