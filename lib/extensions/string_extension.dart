@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 extension FitStringExtension on String {
   /// Takes a [String] list, [list], and counts the exact matches to [this].
   /// Then, it appends the number of occurence found inside the list to [this].
-  /// 
+  ///
   /// Ex:
   /// list: test, test1, test (1), test (2)
   /// this: test
@@ -32,7 +32,8 @@ extension FitStringExtension on String {
 
   /// Returns [true] if the [String] contains any of the following caracters: "!@#$%?&*()-+=^;,.'"\/¨{}[]¤<>°`~".
   bool containsSpecialChar() {
-    return characters.any((char) => "!@#\$%?&*()-+=^;,.'\"\\/¨{}[]¤<>°`~".contains(char));
+    return characters
+        .any((char) => "!@#\$%?&*()-+=^;,.'\"\\/¨{}[]¤<>°`~".contains(char));
   }
 
   /// Returns the number inside a [String].

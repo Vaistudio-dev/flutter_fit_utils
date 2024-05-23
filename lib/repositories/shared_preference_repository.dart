@@ -32,19 +32,24 @@ class SharedPreferenceRepository implements Repository {
       return;
     }
 
-    final List<Map<String, dynamic>> models = List<Map<String, dynamic>>.from(jsonDecode(encodedData));
+    final List<Map<String, dynamic>> models =
+        List<Map<String, dynamic>>.from(jsonDecode(encodedData));
     for (final model in models) {
-      _models.add(Model(id: model[Model.idKey], userId: model[Model.userIdKey] ?? "", data: model[Model.dataKey] as Map<String, dynamic>));
+      _models.add(Model(
+          id: model[Model.idKey],
+          userId: model[Model.userIdKey] ?? "",
+          data: model[Model.dataKey] as Map<String, dynamic>));
     }
   }
 
   void _writeRaw() {
     _prefs.remove(tag);
 
-    _prefs.setString(tag, jsonEncode([
-      for (final model in _models)
-        model.toJson(),
-    ]));
+    _prefs.setString(
+        tag,
+        jsonEncode([
+          for (final model in _models) model.toJson(),
+        ]));
   }
 
   void _checkInitializationStatus() {
@@ -60,10 +65,16 @@ class SharedPreferenceRepository implements Repository {
   }
 
   @override
-  Future<List<Model>> getAll({String? userId, Where? where, String? orderBy, bool descending = true}) async {
+  Future<List<Model>> getAll(
+      {String? userId,
+      Where? where,
+      String? orderBy,
+      bool descending = true}) async {
     _checkInitializationStatus();
 
-    List<Model> correspondingUserModels = List.from(_models.where((element) => userId == null || element.userId! == userId).toList());
+    List<Model> correspondingUserModels = List.from(_models
+        .where((element) => userId == null || element.userId! == userId)
+        .toList());
 
     return correspondingUserModels;
   }
@@ -72,7 +83,8 @@ class SharedPreferenceRepository implements Repository {
   Future<void> clear({String? userId}) async {
     _checkInitializationStatus();
 
-    _models.removeWhere((element) => userId == null || element.userId! == userId);
+    _models
+        .removeWhere((element) => userId == null || element.userId! == userId);
     _writeRaw();
   }
 
@@ -112,7 +124,8 @@ class SharedPreferenceRepository implements Repository {
   Future<void> update(Model item) async {
     _checkInitializationStatus();
 
-    _models[_models.indexOf(_models.firstWhere((element) => element.id == item.id))] = item;
+    _models[_models.indexOf(
+        _models.firstWhere((element) => element.id == item.id))] = item;
     _writeRaw();
   }
 }

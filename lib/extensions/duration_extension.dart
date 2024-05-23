@@ -1,16 +1,19 @@
 /// Extension of the [Duration] class.
 extension DurationUtils on Duration {
   /// Override the / operator to divide a [Duration] by an [int].
-  Duration operator / (int other) => Duration(microseconds: inMicroseconds ~/ other);
+  Duration operator /(int other) =>
+      Duration(microseconds: inMicroseconds ~/ other);
 
   /// Returns the sum of two [Duration].
-  Duration operator + (Duration other) => Duration(microseconds: inMicroseconds + other.inMicroseconds);
+  Duration operator +(Duration other) =>
+      Duration(microseconds: inMicroseconds + other.inMicroseconds);
 
   /// Returns the difference between two [Duration].
-  Duration operator - (Duration other) => Duration(microseconds: inMicroseconds - other.inMicroseconds);
+  Duration operator -(Duration other) =>
+      Duration(microseconds: inMicroseconds - other.inMicroseconds);
 
   /// Divides a [Duration] by another [Duration].
-  int divideBy (Duration other) => inMicroseconds ~/ other.inMicroseconds;
+  int divideBy(Duration other) => inMicroseconds ~/ other.inMicroseconds;
 
   /// Prints a [Duration] with the format {h:mm}.
   /// Ex: 1:10, 1, 1:05.

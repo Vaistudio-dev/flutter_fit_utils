@@ -3,7 +3,8 @@ import 'package:intl/intl.dart';
 /// Extension of the [DateTime] class.
 extension FitDateTimeExtension on DateTime {
   /// Returns [true] if two [DateTime] are on the same exact day (Day, month and year).
-  bool isSameDate(DateTime other) => day == other.day && month == other.month && year == other.year;
+  bool isSameDate(DateTime other) =>
+      day == other.day && month == other.month && year == other.year;
 
   /// Returns the week number of the current week. from 1 to 52.
   int getWeekNumber() {
@@ -45,15 +46,19 @@ extension FitDateTimeExtension on DateTime {
   /// Returns the ordinal day number.
   /// Ex. 11th, 1st, 2nd, etc.
   String getOrdinal() {
-    if(day >= 11 && day <= 13) {
+    if (day >= 11 && day <= 13) {
       return "${day}th";
     }
 
-    switch(day % 10) {
-      case 1: return "${day}st";
-      case 2: return "${day}nd";
-      case 3: return "${day}rd";
-      default: return "${day}th";
+    switch (day % 10) {
+      case 1:
+        return "${day}st";
+      case 2:
+        return "${day}nd";
+      case 3:
+        return "${day}rd";
+      default:
+        return "${day}th";
     }
   }
 }
@@ -94,29 +99,35 @@ int getDayIndex(String day) {
   int index = 0;
 
   switch (day.toLowerCase()) {
-    case "tuesday": {
-      index = 1;
-      break;
-    }
-    case "wednesday": {
-      index = 2;
-      break;
-    }
-    case "thursday": {
-      index = 3;
-      break;
-    }
-    case "friday": {
-      index = 4;
-      break;
-    }
-    case "saturday": {
-      index = 5;
-      break;
-    }
-    case "sunday": {
-      index = 6;
-    }
+    case "tuesday":
+      {
+        index = 1;
+        break;
+      }
+    case "wednesday":
+      {
+        index = 2;
+        break;
+      }
+    case "thursday":
+      {
+        index = 3;
+        break;
+      }
+    case "friday":
+      {
+        index = 4;
+        break;
+      }
+    case "saturday":
+      {
+        index = 5;
+        break;
+      }
+    case "sunday":
+      {
+        index = 6;
+      }
   }
 
   return index;

@@ -14,17 +14,16 @@ class Where {
 
   const Where(
     this.field, {
-      this.isEqualTo,
-      this.isNotEqualTo,
-      this.isLessThan,
-      this.isGreaterThan,
-      this.isGreaterThanOrEqualTo,
-      this.isLessThanOrEqualTo,
-      this.arrayContains,
-      this.arrayContainsAny,
-      this.whereIn,
-      this.whereNotIn,
-      this.isNull,
-    }
-  );
+    this.isEqualTo,
+    this.isNotEqualTo,
+    this.isLessThan,
+    this.isGreaterThan,
+    this.isGreaterThanOrEqualTo,
+    this.isLessThanOrEqualTo,
+    this.arrayContains,
+    this.arrayContainsAny,
+    this.whereIn,
+    this.whereNotIn,
+    this.isNull,
+  });
 }

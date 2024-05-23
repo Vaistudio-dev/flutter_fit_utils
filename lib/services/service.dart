@@ -1,4 +1,3 @@
-
 import '../flutter_fit_utils.dart';
 
 /// Manager service for data of type [T].
@@ -25,11 +24,15 @@ abstract base class Service<T extends Modelable> {
   }
 
   /// Performs [repository.getAll()].
-  Future<List<T>> getAll({String? userId, Where? where, String? orderBy, bool descending = true}) async {
-    final List<Model> raw = await repository.getAll(userId: userId, where: where, orderBy: orderBy, descending: descending);
+  Future<List<T>> getAll(
+      {String? userId,
+      Where? where,
+      String? orderBy,
+      bool descending = true}) async {
+    final List<Model> raw = await repository.getAll(
+        userId: userId, where: where, orderBy: orderBy, descending: descending);
     return [
-      for (final model in raw)
-        fromModelFactory(model),
+      for (final model in raw) fromModelFactory(model),
     ];
   }
 
@@ -40,7 +43,8 @@ abstract base class Service<T extends Modelable> {
   }
 
   /// Performs [repository.count()].
-  Future<int> count({String? userId, Where? where}) => repository.count(userId: userId, where: where);
+  Future<int> count({String? userId, Where? where}) =>
+      repository.count(userId: userId, where: where);
 
   /// Performs [repository.update()].
   Future<void> update(T item) => repository.update(item.toModel());
