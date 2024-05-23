@@ -58,12 +58,12 @@ extension FitStringExtension on String {
   /// Creates a [Model] from a [String].
   /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
-    id: id,
-    userId: userId,
-    data: {
-      "data": this,
-    },
-  );
+        id: id,
+        userId: userId,
+        data: {
+          "data": this,
+        },
+      );
 }
 
 /// Creates a [String] from a [Model].

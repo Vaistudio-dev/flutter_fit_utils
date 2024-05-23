@@ -5,14 +5,15 @@ extension FitBoolExtension on bool {
   /// Creates a [Model] from a [bool].
   /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
-    id: id,
-    userId: userId,
-    data: {
-      "data": this,
-    },
-  );
+        id: id,
+        userId: userId,
+        data: {
+          "data": this,
+        },
+      );
 }
 
 /// Creates a [bool] from a [Model].
 /// If unsucessful, will return [false].
-bool boolFromModel(Model model) => bool.parse(model.data["data"]?.toString() ?? "false");
+bool boolFromModel(Model model) =>
+    bool.parse(model.data["data"]?.toString() ?? "false");

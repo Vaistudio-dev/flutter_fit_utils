@@ -5,12 +5,12 @@ extension FitIntExtension on int {
   /// Creates a [Model] from an [int].
   /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
-    id: id,
-    userId: userId,
-    data: {
-      "data": this,
-    },
-  );
+        id: id,
+        userId: userId,
+        data: {
+          "data": this,
+        },
+      );
 }
 
 /// Creates an [int] from a [Model].

@@ -15,12 +15,12 @@ extension FitDoubleExtension on double {
   /// Creates a [Model] from a [double].
   /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
-    id: id,
-    userId: userId,
-    data: {
-      "data": this,
-    },
-  );
+        id: id,
+        userId: userId,
+        data: {
+          "data": this,
+        },
+      );
 }
 
 /// Creates a [double] from a [Model].
