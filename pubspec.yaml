@@ -1,7 +1,18 @@
 name: flutter_fit_utils
 description: "A flutter package to easily manage data in and out of repositories. This package is the core of it's environement."
 version: 1.0.0
-homepage:
+repository: https://github.com/s0punk/flutter_fit_utils
+
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
+
+topics:
+  - firebase
 
 environment:
   sdk: '>=3.3.3 <4.0.0'
