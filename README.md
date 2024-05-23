@@ -14,7 +14,7 @@ and the Flutter guide for
 TODO: Put a short description of the package here that helps potential users
 know whether this package might be useful for them.
 
-![flutter_fit_utils drawio](https://github.com/s0punk/flutter_fit_utils/assets/59456672/fb9fe7cf-2de0-4e02-b126-66c9b7f11c8d)
+![flutter_fit_utils relations](https://github.com/s0punk/flutter_fit_utils/assets/59456672/2747cb84-1c06-4c5a-9b45-8db18977ac77)
 
 ## Features
 
