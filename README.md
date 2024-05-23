@@ -71,6 +71,26 @@ class User extends Modelable {
 }
 ```
 
+If creating an entire class is too much for your use case, this package offers extensions to convert primitive types to Models:
+```dart
+final int myValue = 1;
+
+/// Write.
+final Model model = myValue.toModel();
+
+/// Read.
+final int otherValue = intFromModel(model);
+```
+
+Here are the supported types:
+- int
+- double
+- num
+- bool
+- String
+- List (Of Modelable objects)
+- Map<String, dynamic>
+
 ### Managing your model with a service
 You can create a service for your model with a single line of code:
 ```dart
