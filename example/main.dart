@@ -24,26 +24,28 @@ class User extends Modelable {
   const User({this.name = "", super.id, super.userId});
 
   /// Creates an invalid user.
-  const User.invalid() : name = "", super.invalid();
+  const User.invalid()
+      : name = "",
+        super.invalid();
 
   /// Creates a user from a [Model].
-  User.fromModel(super.model) :
-    name = model.data[_nameKey].toString(),
-    super.fromModel();
+  User.fromModel(super.model)
+      : name = model.data[_nameKey].toString(),
+        super.fromModel();
 
   @override
   User copyWith({String? id, String? userId, String? name}) => User(
-    name: name ?? this.name,
-    id: id ?? this.id,
-    userId: userId ?? this.userId,
-  );
+        name: name ?? this.name,
+        id: id ?? this.id,
+        userId: userId ?? this.userId,
+      );
 
   @override
   Model toModel() => Model(
-    id: id,
-    userId: userId,
-    data: {
-      _nameKey: name,
-    },
-  );
+        id: id,
+        userId: userId,
+        data: {
+          _nameKey: name,
+        },
+      );
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fit_utils/flutter_fit_utils.dart';
 
 /// Extension of the [String] class.
 extension FitStringExtension on String {
@@ -53,4 +54,18 @@ extension FitStringExtension on String {
   /// Converts a [String] to a [bool].
   /// To return [true], the trimmed lowercase string must be "true".
   bool parseBool() => toLowerCase().trim() == "true";
+
+  /// Creates a [Model] from a [String].
+  /// Encapsulates the data inside model->data->"data".
+  Model toModel({String id = "", String userId = ""}) => Model(
+        id: id,
+        userId: userId,
+        data: {
+          "data": this,
+        },
+      );
 }
+
+/// Creates a [String] from a [Model].
+/// If unsucessful, will return an empty [String].
+String stringFromModel(Model model) => model.data["data"]?.toString() ?? "";
