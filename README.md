@@ -5,7 +5,9 @@ This package is the core of it's environement. To know about other packages rela
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Use this package to:
+- Get a uniform way of reading and writing data with Models.
+- Create a repository and a service for your data with a single line of code.
 
 ## Getting started
 
