@@ -102,4 +102,4 @@ Note that you can override any function of the base Service class.
 
 ## Additional information
 
-Feel free to [give any feedback](https://github.com/s0punk/flutter_fit_utils/issues)! This package is also open to contributions.
+Feel free to [give any feedback](https://github.com/s0punk/flutter_fit_utils/issues) ! This package is also open to contributions.
