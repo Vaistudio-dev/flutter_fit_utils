@@ -1,3 +1,8 @@
-## 0.0.1
+## 1.0.0
 
-* TODO: Describe initial release.
+- Added Models
+- Added Repositories
+    - Firebase Firestore
+    - Firebase Remote Config (Read Only)
+    - shared_preferences
+- Added some basic extensions

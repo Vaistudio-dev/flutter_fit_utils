@@ -1,41 +1,105 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+A flutter package to easily manage data in and out of repositories.
+This package is the core of it's environement. To know about other packages related to flutter_fit_utils, see the diagram below.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-![image](https://github.com/s0punk/flutter_fit_utils/assets/59456672/fd164b2c-7e91-4827-ae69-845ca8d744c0)
+![flutter_fit_utils relations](https://github.com/s0punk/flutter_fit_utils/assets/59456672/2747cb84-1c06-4c5a-9b45-8db18977ac77)
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Use this package to:
+- Get a uniform way of reading and writing data with Models.
+- Create a repository and a service for your data with a single line of code.
+- Get access to extensions for multiple flutter base classes.
+
+Here are the supported repositories:
+- Firebase Firestore
+- Firebase Remote Config (Read Only)
+- shared_preferences
+- Firebase Storage (soon)
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+- Go inside your pubspec.yaml file
+- Add this line under the dependencies:
+```
+    flutter_fit_utils: ^1.0.0
+```
+- Get dependencies
+```
+flutter pub get
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
+### Creating a model
+Make a class Modelable so it can be managed by a service and sent to a repository. For example:
 ```dart
-const like = 'sample';
+import 'package:flutter_fit_utils/flutter_fit_utils.dart';
+
+/// Example user class.
+class User extends Modelable {
+  static const String _nameKey = "name";
+
+  /// User's last name.
+  final String name;
+
+  /// Creates a new user.
+  const User({this.name = "", super.id, super.userId});
+
+  /// Creates an invalid user.
+  const User.invalid() : name = "", super.invalid();
+
+  /// Creates a user from a [Model].
+  User.fromModel(super.model) :
+    name = model.data[_nameKey].toString(),
+    super.fromModel();
+
+  @override
+  User copyWith({String? id, String? userId, String? name}) => User(
+    name: name ?? this.name,
+    id: id ?? this.id,
+    userId: userId ?? this.userId,
+  );
+
+  @override
+  Model toModel() => Model(
+    id: id,
+    userId: userId,
+    data: {
+      _nameKey: name,
+    },
+  );
+}
 ```
+
+### Managing your model with a service
+You can create a service for your model with a single line of code:
+```dart
+import 'package:flutter_fit_utils/flutter_fit_utils.dart';
+
+final Service<User> service = FirestoreService("my_user_collection", User.fromModel);
+```
+
+This example automatically uses a FirestoreCollection repository. In the case of FirestoreCollection, the only thing you have to do
+is go to your Firebase project, and create a new collection "my_user_collection" in your database.
+
+If you want more control over your service, you can also create a custom one:
+```dart
+import 'package:flutter_fit_utils/flutter_fit_utils.dart';
+
+final class CustomUserService extends Service<User> {
+  CustomUserService(super.repositoryId, super.fromModelFactory) {
+    repository = FirestoreCollection(collectionId: repositoryId);
+  }
+
+  @override
+  Future<List<UserData>> getAll({String? userId, Where? where, String? orderBy, bool descending = true}) async {
+    // Implement your custom logic...
+  }
+}
+```
+
+Note that you can override any function of the base Service class.
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Feel free to [give any feedback](https://github.com/s0punk/flutter_fit_utils/issues) ! This package is also open to contributions.
