@@ -66,4 +66,5 @@ extension FitStringExtension on String {
 }
 
 /// Creates a [String] from a [Model].
+/// If unsucessful, will return an empty [String].
 String stringFromModel(Model model) => model.data["data"]?.toString() ?? "";
