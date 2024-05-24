@@ -21,7 +21,7 @@ Here are the supported repositories:
 - Go inside your pubspec.yaml file
 - Add this line under the dependencies:
 ```
-flutter_fit_utils: ^1.0.0
+flutter_fit_utils: ^2.0.0
 ```
 - Get dependencies
 ```

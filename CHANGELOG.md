@@ -13,6 +13,7 @@
 - Add /example/main.dart
 - Fixed code issues
 
-## 1.1.0
+## 2.0.0
 
 - Added extensions for primitive types to create/read models
+- Removed extensions that were too specific and weren't related to models
