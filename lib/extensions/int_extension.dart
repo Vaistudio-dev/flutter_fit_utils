@@ -1,8 +1,8 @@
 import 'package:flutter_fit_utils/flutter_fit_utils.dart';
 
-/// Extension of the [double] type.
-extension FitDoubleExtension on double {
-  /// Creates a [Model] from a [double].
+/// Extension of the [int] type.
+extension FitIntExtension on int {
+  /// Creates a [Model] from an [int].
   /// Encapsulates the data inside model->data->"data".
   Model toModel({String id = "", String userId = ""}) => Model(
         id: id,
@@ -13,6 +13,6 @@ extension FitDoubleExtension on double {
       );
 }
 
-/// Creates a [double] from a [Model].
+/// Creates an [int] from a [Model].
 /// If unsucessful, will return [-1].
-double doubleFromModel(Model model) => model.data["data"]?.toDouble() ?? -1;
+int intFromModel(Model model) => model.data["data"]?.toInt() ?? -1;

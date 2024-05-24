@@ -21,7 +21,7 @@ Here are the supported repositories:
 - Go inside your pubspec.yaml file
 - Add this line under the dependencies:
 ```
-    flutter_fit_utils: ^1.0.0
+flutter_fit_utils: ^2.0.0
 ```
 - Get dependencies
 ```
@@ -70,6 +70,26 @@ class User extends Modelable {
   );
 }
 ```
+
+If creating an entire class is too much for your use case, this package offers extensions to convert primitive types to Models:
+```dart
+final int myValue = 1;
+
+/// Write.
+final Model model = myValue.toModel();
+
+/// Read.
+final int otherValue = intFromModel(model);
+```
+
+Here are the supported types:
+- int
+- double
+- num
+- bool
+- String
+- List (Of Modelable objects)
+- Map<String, dynamic>
 
 ### Managing your model with a service
 You can create a service for your model with a single line of code:
