@@ -17,3 +17,7 @@
 
 - Added extensions for primitive types to create/read models
 - Removed extensions that were too specific and weren't related to models
+
+## 2.0.1
+
+- Updated README
