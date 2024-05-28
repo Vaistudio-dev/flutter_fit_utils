@@ -34,7 +34,8 @@ class User extends Modelable {
         super.fromModel();
 
   @override
-  User copyWith({String? id, String? userId, bool? invalid, String? name}) => User(
+  User copyWith({String? id, String? userId, bool? invalid, String? name}) =>
+      User(
         name: name ?? this.name,
         id: id ?? this.id,
         userId: userId ?? this.userId,
