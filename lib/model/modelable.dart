@@ -34,5 +34,5 @@ abstract class Modelable {
   Model toModel();
 
   /// Copies an instance with the possibility of overriding certain fields.
-  Modelable copyWith({String? id, String? userId});
+  Modelable copyWith({String? id, String? userId, bool? invalid = false});
 }

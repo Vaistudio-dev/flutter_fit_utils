@@ -21,3 +21,7 @@
 ## 2.0.1
 
 - Updated README
+
+## 2.1.1
+
+- Added the invalid attribute inside the copyWith method of modelable
