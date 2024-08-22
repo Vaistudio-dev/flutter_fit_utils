@@ -1,17 +1,5 @@
-import 'package:flutter_fit_utils/flutter_fit_utils.dart';
-
-Future<void> main() async {
-  // Create a service.
-  final Service service = SharedPreferenceService("users", User.fromModel);
-
-  const User newUser = User(name: "User", id: "1", userId: "u_1");
-
-  // Write to your repository.
-  await service.create(newUser);
-
-  // Read from your repository.
-  await service.getAll();
-}
+import 'package:flutter_fit_utils/model/model.dart';
+import 'package:flutter_fit_utils/model/modelable.dart';
 
 /// Example user class.
 class User extends Modelable {
@@ -43,10 +31,10 @@ class User extends Modelable {
 
   @override
   Model toModel() => Model(
-        id: id,
-        userId: userId,
-        data: {
-          _nameKey: name,
-        },
-      );
+    id: id,
+    userId: userId,
+    data: {
+      _nameKey: name,
+    },
+  );
 }

@@ -25,3 +25,8 @@
 ## 2.1.0
 
 - Added the invalid attribute inside the copyWith method of modelable
+
+## 2.2.0
+
+- Added support for Hive
+- Made a new example
