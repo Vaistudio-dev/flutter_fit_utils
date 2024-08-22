@@ -69,7 +69,17 @@ class HiveBox implements Repository {
 
   @override
   Future<int> count({String? userId, Where? where}) async {
-    return _box.values.length;
+    List<Model> data = _getAll();
+
+    if (userId != null) {
+      data = data.where((element) => element.userId == userId).toList();
+    }
+
+    if (where != null) {
+      data = _filter(data, where);
+    }
+
+    return data.length;
   }
 
   @override
