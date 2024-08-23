@@ -30,3 +30,7 @@
 
 - Added support for Hive
 - Made a new example
+
+## 2.2.1
+
+- Fixed get() and getAll() for Hive.

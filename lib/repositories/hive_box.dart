@@ -23,7 +23,7 @@ class HiveBox implements Repository {
 
   @override
   Future<Model> get(String id) async {
-    final Map<String, dynamic> data = (_box.get(id) as Map<String, dynamic>);
+    final Map<String, dynamic> data = (_box.get(id) as Map).cast<String, dynamic>();
     return Model(
         id: id, userId: data[Model.userIdKey], data: data[Model.dataKey]);
   }
@@ -102,7 +102,7 @@ class HiveBox implements Repository {
 
   List<Model> _getAll() => [
     for (final value in _box.values)
-      Model(id: value[Model.idKey], userId: value[Model.userIdKey], data: value[Model.dataKey] as Map<String, dynamic>),
+      Model(id: value[Model.idKey], userId: value[Model.userIdKey], data: (value[Model.dataKey] as Map).cast<String, dynamic>()),
   ];
 
   List<Model> _filter(List<Model> data, Where where) {
