@@ -38,3 +38,7 @@
 ## 2.3.0
 
 - Added a generic model
+
+## 2.3.1
+
+- Fix generic model
