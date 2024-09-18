@@ -34,3 +34,7 @@
 ## 2.2.1
 
 - Fixed get() and getAll() for Hive.
+
+## 2.3.0
+
+- Added a generic model
