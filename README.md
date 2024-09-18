@@ -12,6 +12,7 @@ Use this package to:
 
 Here are the supported repositories:
 - Firebase Firestore
+- Hive
 - Firebase Remote Config (Read Only)
 - shared_preferences
 - Firebase Storage (soon)
