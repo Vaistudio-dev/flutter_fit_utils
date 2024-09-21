@@ -42,3 +42,7 @@
 ## 2.3.1
 
 - Fix generic model
+
+## 2.4.0
+
+- Added failsafe to Model.fromJson.
