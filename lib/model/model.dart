@@ -26,7 +26,7 @@ class Model {
   factory Model.fromJson(Map<String, dynamic> json) {
     String id = "";
     if (json.containsKey(idKey)) {
-      id = json[id].toString();
+      id = json[idKey].toString();
     }
 
     String userId = "";
