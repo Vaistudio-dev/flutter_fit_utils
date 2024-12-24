@@ -50,3 +50,7 @@
 ## 2.4.1
 
 - Fixed Model.fromJson.
+
+## 2.4.2
+
+- Added mock repository.
