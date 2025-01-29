@@ -43,6 +43,18 @@
 
 - Fix generic model
 
-## 2.3.2
+## 2.4.0
+
+- Added failsafe to Model.fromJson.
+
+## 2.4.1
+
+- Fixed Model.fromJson.
+
+## 2.4.2
+
+- Added mock repository.
+
+## 2.4.3
 
 - Updated dependencies

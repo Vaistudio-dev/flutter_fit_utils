@@ -23,17 +23,34 @@ class Model {
   const Model({required this.id, this.userId, this.data = const {}});
 
   /// Creates an instance from json.
-  Model.fromJson(Map<String, dynamic> json)
-      : id = json[idKey],
-        userId = json[userIdKey],
-        data = json[dataKey];
+  factory Model.fromJson(Map<String, dynamic> json) {
+    String id = "";
+    if (json.containsKey(idKey)) {
+      id = json[idKey].toString();
+    }
+
+    String userId = "";
+    if (json.containsKey(userIdKey)) {
+      userId = json[userIdKey].toString();
+    }
+
+    Map<String, dynamic> data = {};
+    if (json.containsKey(dataKey)) {
+      data = json[dataKey];
+    }
+    else {
+      data = json;
+    }
+
+    return Model(id: id, userId: userId, data: data);
+  }
 
   /// Converts an instance to json.
   Map<String, dynamic> toJson() => {
-        idKey: id,
-        userIdKey: userId ?? "",
-        dataKey: data,
-      };
+    idKey: id,
+    userIdKey: userId ?? "",
+    dataKey: data,
+  };
 
   @override
   String toString() => toJson().toString();
