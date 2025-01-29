@@ -54,3 +54,7 @@
 ## 2.4.2
 
 - Added mock repository.
+
+## 2.4.3
+
+- Updated dependencies
