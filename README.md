@@ -1,8 +1,6 @@
 A flutter package to easily manage data in and out of repositories.
 This package is the core of it's environement. To know about other packages related to flutter_fit_utils, see the diagram below.
 
-![flutter_fit_utils drawio](https://github.com/s0punk/flutter_fit_utils_provider/assets/59456672/74b056f7-f85d-4635-891c-fd9feee99cfb)
-
 ## Features
 
 Use this package to:
@@ -22,7 +20,7 @@ Here are the supported repositories:
 - Go inside your pubspec.yaml file
 - Add this line under the dependencies:
 ```
-flutter_fit_utils: ^2.0.0
+flutter_fit_utils: ^2.4.4
 ```
 - Get dependencies
 ```
@@ -123,4 +121,4 @@ Note that you can override any function of the base Service class.
 
 ## Additional information
 
-Feel free to [give any feedback](https://github.com/s0punk/flutter_fit_utils/issues) ! This package is also open to contributions.
+Feel free to [give any feedback](https://github.com/Vaistudio-dev/flutter_fit_utils/issues) ! This package is also open to contributions.

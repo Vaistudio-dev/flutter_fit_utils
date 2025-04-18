@@ -58,3 +58,6 @@
 ## 2.4.3
 
 - Updated dependencies
+
+## 2.4.4
+.
