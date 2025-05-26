@@ -1,6 +1,6 @@
 name: flutter_fit_utils
 description: "A flutter package to easily manage data in and out of repositories. This package is the core of it's environement."
-version: 2.4.4
+version: 2.4.5
 homepage: https://pub.dev/packages/flutter_fit_utils
 repository: https://github.com/Vaistudio-dev/flutter_fit_utils
 issue_tracker: https://github.com/Vaistudio-dev/flutter_fit_utils/issues
@@ -29,12 +29,9 @@ dependencies:
   flutter:
     sdk: flutter
   hive: ^2.2.3
-  intl: ^0.20.2
   shared_preferences: ^2.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-
-flutter:
