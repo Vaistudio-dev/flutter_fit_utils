@@ -64,3 +64,6 @@
 
 ## 2.4.5
 - Removed intl dependency.
+
+## 3.0.0
+- Removed firebase dependencies. Use flutter_fit_utils_firebase instead.

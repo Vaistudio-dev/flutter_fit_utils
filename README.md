@@ -1,5 +1,5 @@
 A flutter package to easily manage data in and out of repositories.
-This package is the core of it's environement. To know about other packages related to flutter_fit_utils, see the diagram below.
+This package is the core of it's environement.
 
 ## Features
 
@@ -9,18 +9,18 @@ Use this package to:
 - Get access to extensions for multiple flutter base classes.
 
 Here are the supported repositories:
-- Firebase Firestore
+- Firebase Firestore (use flutter_fit_utils_firebase)
 - Hive
-- Firebase Remote Config (Read Only)
+- Firebase Remote Config (Read Only) (use flutter_fit_utils_firebase)
 - shared_preferences
-- Firebase Storage (soon)
+- Firebase Storage (soon) (use flutter_fit_utils_firebase)
 
 ## Getting started
 
 - Go inside your pubspec.yaml file
 - Add this line under the dependencies:
 ```
-flutter_fit_utils: ^2.4.5
+flutter_fit_utils: ^3.0.0
 ```
 - Get dependencies
 ```
