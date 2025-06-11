@@ -33,6 +33,10 @@ abstract class Modelable {
   /// Converts the instance to a [Model].
   Model toModel();
 
+  /// Shortcut to convert directly to json.
+  /// Handy for stuff like json_serializable.
+  Map<String, dynamic> toJson() => toModel().toJson();
+
   /// Copies an instance with the possibility of overriding certain fields.
   Modelable copyWith({String? id, String? userId, bool? invalid = false});
 }
