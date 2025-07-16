@@ -1,8 +1,4 @@
-import 'package:flutter/widgets.dart';
-
 import 'model.dart';
-
-@immutable
 
 /// Interface that can transform a class into a [Model].
 abstract class Modelable {

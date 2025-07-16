@@ -9,18 +9,18 @@ Use this package to:
 - Get access to extensions for multiple flutter base classes.
 
 Here are the supported repositories:
-- Firebase Firestore (use flutter_fit_utils_firebase)
-- Hive
-- Firebase Remote Config (Read Only) (use flutter_fit_utils_firebase)
-- shared_preferences
-- Firebase Storage (soon) (use flutter_fit_utils_firebase)
+- [Firebase Firestore](https://pub.dev/packages/flutter_fit_utils_firebase)
+- [Hive](https://pub.dev/packages/fit_hive)
+- [Firebase Remote Config](https://pub.dev/packages/flutter_fit_utils_firebase)
+- [shared_preferences](https://pub.dev/packages/fit_shared_preferences)
+- [Firebase Storage](https://pub.dev/packages/flutter_fit_utils_firebase) (soon)
 
 ## Getting started
 
 - Go inside your pubspec.yaml file
 - Add this line under the dependencies:
 ```
-flutter_fit_utils: ^3.0.1
+flutter_fit_utils: ^4.0.0
 ```
 - Get dependencies
 ```

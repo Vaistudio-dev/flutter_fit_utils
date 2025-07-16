@@ -70,3 +70,8 @@
 
 ## 3.0.0
 - Removed firebase dependencies. Use flutter_fit_utils_firebase instead.
+
+## 4.0.0
+`- Exported the hive implementation to the fit_hive package
+- Exported the shared_preferences implementation to the fit_shared_preferences package
+- Removed all dependencies`
